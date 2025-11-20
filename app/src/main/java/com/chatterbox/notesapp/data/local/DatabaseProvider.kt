@@ -2,7 +2,6 @@ package com.chatterbox.notesapp.data.local
 
 import android.content.Context
 import androidx.room.Room
-import com.chatterbox.notesapp.AppDatabase
 
 object DatabaseProvider {
     @Volatile

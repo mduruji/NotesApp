@@ -1,6 +1,7 @@
-package com.chatterbox.notesapp
+package com.chatterbox.notesapp.data.local.dao
 
 import androidx.room.*
+import com.chatterbox.notesapp.data.local.entity.TodoEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
