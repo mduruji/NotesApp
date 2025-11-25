@@ -9,6 +9,7 @@ import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.navigation.NavController
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -17,6 +18,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
 import com.chatterbox.notesapp.data.local.entity.NoteEntity
 import com.chatterbox.notesapp.model.NotesViewModel
 import com.chatterbox.notesapp.ui.components.NoteItem
@@ -25,7 +27,8 @@ import com.chatterbox.notesapp.ui.components.NoteItem
 @Composable
 fun NoteScreen(
     viewModel: NotesViewModel,
-    onNoteClick: (NoteEntity) -> Unit
+    onNoteClick: (NoteEntity) -> Unit,
+    navController: NavController
 ) {
     val notes by viewModel.notes.collectAsState()
 
@@ -45,8 +48,7 @@ fun NoteScreen(
                 actions = {
                     IconButton(
                         onClick = {
-                            val newNote = NoteEntity(title = "New Note", content = "")
-                            onNoteClick(newNote)
+                            navController.navigate("note_editor")
                         }
                     ) {
                         Icon(
