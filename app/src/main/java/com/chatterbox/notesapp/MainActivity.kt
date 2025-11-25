@@ -42,13 +42,17 @@ class MainActivity : ComponentActivity() {
                             viewModel = notesViewModel,
                             onNoteClick = {
                                 navController.navigate("note_editor")
-                            }
+                            },
+                            navController = navController
                         )
                     }
 
                     composable("note_editor") {
                         NoteEditorScreen(
-                            viewModel = notesViewModel
+                            viewModel = notesViewModel,
+                            onNavigationBack = {
+                                navController.popBackStack()
+                            }
                         )
                     }
 
