@@ -2,14 +2,14 @@ package com.chatterbox.notesapp.data.local
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.chatterbox.notesapp.data.local.dao.TodoDao
-import com.chatterbox.notesapp.data.local.entity.TodoEntity
+import com.chatterbox.notesapp.data.local.dao.NoteDao
+import com.chatterbox.notesapp.data.local.entity.NoteEntity
 
 @Database(
-    entities = [TodoEntity::class],
+    entities = [NoteEntity::class],
     version = 1,
     exportSchema = false
 )
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun todoDao(): TodoDao
+    abstract fun noteDao(): NoteDao
 }
